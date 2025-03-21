@@ -20,7 +20,17 @@
         }
     },
     "customizations": {
+        "codespaces": {
+			"openFiles": [
+			  "readme.md"
+			]
+		},
         "vscode": {
+            "settings": {
+                "workbench.editorAssociations": {
+                    "*.md": "vscode.markdown.preview.editor"
+                }
+            },
             "extensions": [
                 "ms-vscode.vscode-node-azure-pack",
                 "GitHub.copilot",

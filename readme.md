@@ -1,61 +1,79 @@
-# GitHub Codespaces ♥️ .NET
+<header>
 
-Want to try out the latest performance improvements coming with .NET for web development? 
+# Usando o GitHub Copilot com C#
 
-This repo builds a Weather API, OpenAPI integration to test with [Scalar](https://learn.microsoft.com/aspnet/core/fundamentals/openapi/using-openapi-documents?view=aspnetcore-9.0#use-scalar-for-interactive-api-documentation), and displays the data in a web application using Blazor with .NET. 
+O GitHub Copilot é a primeira ferramenta de IA em grande escala projetada para revolucionar a codificação, fornecendo sugestões inteligentes no estilo de autocompletar enquanto você escreve. Neste módulo, vamos explorar como aproveitar o GitHub Copilot para aumentar sua eficiência ao programar em C#.
 
-We've given you both a frontend and backend to play around with and where you go from here is up to you!
+Como desenvolvedor, maximizar a produtividade e agilizar o processo de codificação são objetivos-chave. O GitHub Copilot serve como seu par programador alimentado por IA, oferecendo sugestões contextuais adaptadas ao seu código. Ao final deste módulo, você aprenderá como configurar o GitHub Copilot no Codespaces e aproveitar suas capacidades para gerar e implementar sugestões de código com facilidade.
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+Prepare-se para um projeto prático! Você trabalhará na modificação de um repositório C# para criar um endpoint de API usando o GitHub Copilot. Este exercício proporcionará uma experiência valiosa na criação de uma aplicação web C# que serve uma API HTTP e gera dados de previsão meteorológica pseudo-aleatórios.
 
-### Run Options
+</header>
 
-[![Open in GitHub Codespaces](https://img.shields.io/static/v1?style=for-the-badge&label=GitHub+Codespaces&message=Open&color=lightgrey&logo=github)](https://codespaces.new/github/dotnet-codespaces)
-[![Open in Dev Container](https://img.shields.io/static/v1?style=for-the-badge&label=Dev+Container&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/github/dotnet-codespaces)
+- **Para quem isso é:** Desenvolvedores, Engenheiros DevOps, Gerentes de Desenvolvimento de Software, Testadores.
+- **O que você aprenderá:** Como usar o GitHub Copilot para criar código e adicionar comentários ao seu trabalho.
+- **O que você construirá:** Arquivos C# que terão código gerado pelo Copilot AI para sugestões de código e comentários.
+- **Pré-requisitos:** O GitHub Copilot está disponível para uso gratuito, inscreva-se para [GitHub Copilot](https://gh.io/copilot).
+- **Duração:** Este curso pode ser concluído em menos de uma hora.
 
-You can also run this repository locally by following these instructions: 
-1. Clone the repo to your local machine `git clone https://github.com/github/dotnet-codespaces`
-1. Open repo in VS Code
+Ao final deste módulo, você adquirirá as habilidades para:
 
-## Getting started
+- Criar prompts para gerar sugestões do GitHub Copilot
+- Aplicar o GitHub Copilot para melhorar seus projetos.
 
-1. **📤 One-click setup**: [Open a new Codespace](https://codespaces.new/github/dotnet-codespaces), giving you a fully configured cloud developer environment.
-2. **▶️ Run all, one-click again**: Use VS Code's built-in *Run* command and open the forwarded ports *8080* and *8081* in your browser. 
+## Leitura prévia:
+- [Introdução à engenharia de prompt com o GitHub Copilot](https://learn.microsoft.com/training/modules/introduction-prompt-engineering-with-github-copilot)
 
-![Debug menu in VS Code showing Run All](images/RunAll.png)
+- [O que é a extensão do GitHub Copilot para o Visual Studio?](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-extension?view=vs-2022)
 
-3. The Blazor web app and Scalar can be open by heading to **/scalar** in your browser. On Scalar, head to the backend API and click "Test Request" to call and test the API. 
+## Requisitos
 
-![A website showing weather](images/BlazorApp.png)
+1. Ative seu [serviço GitHub Copilot](https://github.com/github-copilot/signup)
 
-!["UI showing testing an API"](images/scalar.png)
+1. Familiarize-se com [este repositório com Codespaces](https://github.com/github/dotnet-codespaces)
 
+## 💪🏽 Exercício
 
-4. **🔄 Iterate quickly:** Codespaces updates the server on each save, and VS Code's debugger lets you dig into the code execution.
+**Clique com o botão direito no botão abaixo do Codespaces para abrir seu Codespace em uma nova guia**
 
-5. To stop running, return to VS Code, and click Stop twice in the debug toolbar. 
+[![Abrir no GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/dotnet-codespaces)
 
-![VS Code stop debuggin on both backend and frontend](images/StopRun.png)
+O repositório "**GitHub Codespaces ♥️ .NET**" constrói uma API de previsão do tempo usando APIs Mínimas, abre o Swagger para que você possa chamar e testar a API, e exibe os dados em uma aplicação web usando Blazor com .NET.
 
+Vamos revisar os passos para atualizar o Weather BackEnd App, adicionando um novo endpoint que solicita uma localização específica e retorna a previsão do tempo para essa localização.
 
-## Contributing
+### 🤔 Passo 0: Familiarize-se com o repositório "GitHub Codespaces ♥️ .NET"
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+Quando você abrir o repositório no Codespaces, encontrará uma nova janela de navegador com um Codespace totalmente funcional. Tudo neste repositório está contido neste único Codespace. Por exemplo, no painel de exploração, podemos ver o código principal para o projeto BackEnd e FrontEnd.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+![novo Codespace com todos os repositórios em execução](./images/005OpenRepoInCodeSpaces.png)
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+Antes de executar o projeto, vamos usar o GitHub Copilot Chat para perguntar sobre o que o projeto faz e quais são os diferentes componentes.
 
-## Trademarks
+1. Abra o **GitHub Copilot Chat** na barra de navegação principal.
+1. Digite `O que este projeto está fazendo, e quais são os componentes principais?` e pressione **Enviar**
 
-This project may contain trademarks or logos for projects, products, or services. Authorized use of Microsoft 
-trademarks or logos is subject to and must follow 
-[Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
-Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
-Any use of third-party trademarks or logos are subject to those third-party's policies.
+O GitHub Copilot Chat agora analisará o projeto inteiro e nos fornecerá um resumo sobre o que o projeto faz, quais tecnologias utiliza e quais são os componentes-chave.
+
+![Copilot Chat descrevendo o projeto](./images/004AskCopilotAboutProject.png)
+
+A partir daqui, você pode clicar em arquivos para navegar até eles e pode fazer perguntas de acompanhamento, como `Quais APIs estão disponíveis?`.
+
+### 🚀 Passo 1: Execute os projetos
+
+Agora que temos o contexto do que está no projeto, vamos executá-lo e vê-lo em ação.
+
+Para executar o projeto BackEnd, vá até o painel "Run and Debug" e selecione o projeto "BackEnd".
+
+![abrir program.cs no projeto BackEnd](./images/006RunBackEndProject.png)
+
+Comece a depuração do projeto selecionado. O projeto Weather API, nosso projeto BackEnd, agora estará em execução na porta 8080. Podemos copiar a URL publicada do painel *Ports*.
+
+![Copiar URL do app do painel de portas](./images/007ProjectRunningOpenInNewTab.png)
+
+> Nota: Ao executar a aplicação, você verá a mensagem de erro "Esta página não está funcionando". Isso ocorre porque precisamos navegar até o endpoint, que está detalhado abaixo.
+
+A aplicação BackEnd publicou um endpoint chamado `weatherforecast` que gera dados de previsão aleatórios. Para testar a aplicação em execução, você pode adicionar `/weatherforecast` à URL publicada. A URL final deve ser parecida com esta:
+
+```bash
+https://<seu url>.app.github.dev/weatherforecast
