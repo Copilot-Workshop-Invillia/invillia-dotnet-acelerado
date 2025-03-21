@@ -35,7 +35,10 @@
                 "ms-vscode.vscode-node-azure-pack",
                 "GitHub.copilot",
                 "GitHub.vscode-github-actions",
-                "ms-dotnettools.csdevkit"
+                "GitHub.vscode-pull-request-github",
+                "ms-dotnettools.csdevkit",
+                "ms-dotnettools.csharp",
+                "humao.rest-client"
             ]
         }
     },
